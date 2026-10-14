@@ -1,0 +1,1 @@
+import Site from "../../components/Site"; export default async function Page({params}:{params:Promise<{slug?:string[]}>}){const p=await params;return <Site path={"/"+(p.slug||[]).join("/")}/>;}
