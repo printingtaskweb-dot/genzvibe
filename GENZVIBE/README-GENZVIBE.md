@@ -25,7 +25,7 @@ See README.md for the framework, local D1 database setup and authentication inte
 
 ## Deployment
 
-This project builds a Cloudflare Worker, not a native Next.js `.next` bundle. The included `vercel.json` prevents Vercel from selecting its Next.js builder and points its static output setting at Vinext's `dist/client` directory. The server routes and D1-backed APIs require the Cloudflare Worker deployment target described in `README.md`; deploying only the Vercel static output will not provide those APIs.
+This project builds a Cloudflare Worker by default, not a native Next.js `.next` bundle. For Vercel, the included `vercel.json` enables the Vite build while Vinext's Nitro adapter generates Vercel's `.vercel/output` SSR bundle. Cloudflare D1-backed APIs still require the Cloudflare Worker deployment target described in `README.md`; configure a Vercel-compatible database binding before using those APIs there.
 
 ## Hosting and administrator access
 The current deployment is owner-private on ChatGPT Sites. The content studio relies on that access boundary and platform-authenticated identity. Before deploying publicly or to another host, configure explicit administrator authorization and compatible authentication. Do not trust identity headers from untrusted clients on another host.
